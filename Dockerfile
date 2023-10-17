@@ -11,7 +11,7 @@ LABEL description="Kubedock image based on UBI8."
 USER 0
 
 # Install kubedock
-ENV KUBEDOCK_VERSION 0.11.0
+ENV KUBEDOCK_VERSION 0.13.0
 RUN curl -L https://github.com/joyrex2001/kubedock/releases/download/${KUBEDOCK_VERSION}/kubedock_${KUBEDOCK_VERSION}_linux_amd64.tar.gz | tar -C /usr/local/bin -xz \
     && chmod +x /usr/local/bin/kubedock
 
