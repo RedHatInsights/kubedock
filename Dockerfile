@@ -13,9 +13,10 @@ RUN curl -sfL --retry 10 -o /tmp/go.tar.gz https://go.dev/dl/go1.21.1.linux-amd6
 
 ENV PATH="$GODIR/bin:$PATH"
 
-WORKDIR $APPDIR/kubedock
+WORKDIR $APPDIR
 
-COPY . $APPDIR
+RUN git clone https://github.com/joyrex2001/kubedock.git && cd kubedock && git checkout 5789a1f464595df59ab130b457baa2c9923518a
+WORKDIR $APPDIR/kubedock
 
 RUN CGO_ENABLED=0 go build -ldflags "\
   -X github.com/joyrex2001/kubedock/internal/config.Date=`date -u +%Y%m%d-%H%M%S`\
