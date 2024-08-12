@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:latest AS build
+FROM registry.access.redhat.com/ubi9/ubi:9.4-1181 AS build
 
 USER 0
 
@@ -11,12 +11,12 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4-1194
 
 LABEL maintainer="Red Hat, Inc."
 
-LABEL version="ubi8"
+LABEL version="ubi9"
 #label for EULA
 LABEL com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI"
 
 #labels for container catalog
-LABEL description="Kubedock image based on UBI8."
+LABEL description="Kubedock image based on UBI9."
 COPY --from=build /usr/local/bin/kubedock /usr/local/bin/kubedock
 ENTRYPOINT ["/usr/local/bin/kubedock"]
 CMD [ "server" ]
