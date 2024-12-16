@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.5-1732804088 AS build
+FROM registry.access.redhat.com/ubi9/ubi:9.5-1734081738 AS build
 
 USER 0
 
